@@ -112,6 +112,6 @@ This project is licensed under the **MIT License** — feel free to use, modify,
 
 ## ❤️ Credits
 
-Made with ❤️ by **Aura Farmer**  
+Made with ❤️ by **Ritik Tyagi**  
 If you find this project useful, consider giving it a ⭐ on GitHub!
 
