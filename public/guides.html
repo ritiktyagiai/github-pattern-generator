@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Guides - GitHub Pattern Generator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6363142267367412"
+     crossorigin="anonymous"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P4Q4NPDH2N"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-P4Q4NPDH2N');
+  </script>
+</head>
+
+<body>
+
+  <!-- ================= HEADER ================= -->
+  <header class="topbar">
+    <div class="logo">
+      <img src="assets/logo.jpg" class="header-logo" alt="Logo">
+      <span class="logo-text">ritiktyagiai</span>
+    </div>
+
+    <nav class="nav">
+      <a href="index.html">🎨 Tool</a>
+      <a href="guides.html" class="active">📚 Guides</a>
+      <a href="about.html">ℹ️ About</a>
+      <a href="contact.html">✉️ Contact</a>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode">
+        <i class="fas fa-moon"></i>
+      </button>
+    </nav>
+  </header>
+
+  <!-- ================= PAGE CONTENT ================= -->
+  <main class="page-wrapper" style="flex-direction: column; align-items: center; gap: 40px; padding: 50px 20px;">
+    
+    <!-- Header Card -->
+    <div class="content-card">
+      <h1>Guides & Tutorials</h1>
+      <p>
+        Learn how to master your GitHub profile graph, build beautiful contribution art, and explore tips to make your GitHub profile stand out to developers and recruiters.
+      </p>
+      
+      <!-- Table of Contents Grid -->
+      <div class="guide-grid">
+        <a href="#how-to-use" class="guide-card">
+          <div>
+            <h3>📖 How to Use the Generator</h3>
+            <p>A step-by-step guide to drawing patterns and exporting them to design your custom graph.</p>
+          </div>
+          <span class="read-more">Read Guide <i class="fas fa-arrow-right"></i></span>
+        </a>
+        
+        <a href="#graph-explained" class="guide-card">
+          <div>
+            <h3>📊 Contribution Graph Explained</h3>
+            <p>Understand how GitHub records contributions, colors, timezones, and how commits translate to pixels.</p>
+          </div>
+          <span class="read-more">Read Guide <i class="fas fa-arrow-right"></i></span>
+        </a>
+        
+        <a href="#readme-ideas" class="guide-card">
+          <div>
+            <h3>💡 Profile README Best Practices</h3>
+            <p>Creative profile ideas, custom stats widgets, and how to showcase contribution artwork effectively.</p>
+          </div>
+          <span class="read-more">Read Guide <i class="fas fa-arrow-right"></i></span>
+        </a>
+        
+        <a href="#pattern-gallery" class="guide-card">
+          <div>
+            <h3>🎨 Creative Pattern Gallery</h3>
+            <p>Inspiring ideas for names, logos, shapes, and retro sprites you can paint on your graph.</p>
+          </div>
+          <span class="read-more">Read Guide <i class="fas fa-arrow-right"></i></span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Guide 1 -->
+    <div id="how-to-use" class="content-card">
+      <h2>📖 How to Use the GitHub Pattern Generator</h2>
+      <p>
+        Customizing your contribution graph involves drawing a design in our visual editor, exporting it, and then running a script to commit files on the specific dates that align with your design. Here is the step-by-step workflow:
+      </p>
+      <h3>Step 1: Draw Your Design</h3>
+      <p>
+        Navigate to the homepage tool. The canvas represents a full year of GitHub contributions (53 weeks wide, 7 days high).
+      </p>
+      <ul>
+        <li><strong>Left-Click</strong> on any cell to activate it (turns bright green, indicating high contribution density).</li>
+        <li><strong>Right-Click</strong> on any active cell to deactivate it (turns gray/empty).</li>
+        <li>Feel free to draw characters, simple patterns, or words!</li>
+      </ul>
+      
+      <h3>Step 2: Download your config</h3>
+      <p>
+        Once you're satisfied with your drawing, click <strong>Download pattern.json</strong>. This saves a structured JSON file mapping your visual coordinates into numerical levels (e.g. <code>"3"</code> for active, space <code>" "</code> for empty).
+      </p>
+
+      <h3>Step 3: Run the Automation Script</h3>
+      <p>
+        To render the pattern onto your live GitHub profile, you need a script that reads the downloaded <code>pattern.json</code> and commits updates to a repository on those specific dates in history. Here is a simple outline of how such automation works:
+      </p>
+      <pre><code>// The script parses each cell in pattern.json
+// Row index (0-6) maps to the day of the week (Sunday-Saturday)
+// Column index (0-52) maps to the week of the year
+// It adjusts GIT_COMMIT_DATE for each active cell and runs:
+git commit --date="YYYY-MM-DD" -m "Automated pattern commit"
+</code></pre>
+      <div class="info-alert">
+        <p><strong>💡 Pro Tip:</strong> Always run commit generator scripts inside a new, empty, private or public repository dedicated solely to contribution artwork. If you ever want to reset or remove the graph design, you can simply delete that repository!</p>
+      </div>
+    </div>
+
+    <!-- Guide 2 -->
+    <div id="graph-explained" class="content-card">
+      <h2>📊 GitHub Contribution Graph Explained</h2>
+      <p>
+        GitHub's profile contribution graph serves as a public ledger of your engineering activity. However, many developers don't know the exact rules governing how and when contributions are counted.
+      </p>
+      
+      <h3>What Counts as a Contribution?</h3>
+      <p>
+        GitHub counts contributions when you perform the following actions:
+      </p>
+      <ol>
+        <li><strong>Commits:</strong> Commits must be made to a repository's default branch (usually <code>main</code> or <code>master</code>) or the <code>gh-pages</code> branch. Also, the email address associated with the commits must match one of the verified email addresses on your GitHub account.</li>
+        <li><strong>Pull Requests:</strong> Opening, merging, or commenting on pull requests in public or private repositories.</li>
+        <li><strong>Issues:</strong> Opening issues in repositories.</li>
+        <li><strong>Code Reviews:</strong> Approving or commenting on pull requests as a reviewer.</li>
+      </ol>
+
+      <h3>Understanding Colors & Shades</h3>
+      <p>
+        The graph displays five different color shades (ranging from gray for no commits to deep green for heavy commit days). These shades are calculated relative to your maximum daily commit activity over the past year.
+      </p>
+      <p>
+        If your busiest day has 20 commits, the green scale will be divided into ranges based on that number (e.g., 1-5, 6-10, 11-15, and 16+ commits).
+      </p>
+
+      <h3>Timezone Alignment</h3>
+      <p>
+        Contributions are displayed according to the timezone setting on your local system at the time of committing, parsed by git. When using automated scripts, ensure your script is injecting the timezone parameters correctly, or commits might shift by one day on your graph.
+      </p>
+    </div>
+
+    <!-- Guide 3 -->
+    <div id="readme-ideas" class="content-card">
+      <h2>💡 Profile README Best Practices</h2>
+      <p>
+        Your GitHub Profile README is the billboard of your developer identity. It is the first section visitors see when searching your name, and it is a key asset for recruiters. Here's how to make it premium:
+      </p>
+      
+      <h3>1. Keep it structured and scannable</h3>
+      <p>
+        Recruiters spend an average of 10 seconds scanning a profile. Use clear headings, list items, and clean tech-stack badges instead of long, dense paragraphs of text.
+      </p>
+
+      <h3>2. Share your projects, not just your tech list</h3>
+      <p>
+        Instead of just listing logos (e.g. React, Node, Python), include a short section highlighting your best two projects. Describe the problem they solve, the stack used, and link directly to the repository or live site.
+      </p>
+
+      <h3>3. Display Dynamic Stats Widgets</h3>
+      <p>
+        Add live cards representing your stats (e.g., total commits, PRs, top languages). Tools like <code>github-readme-stats</code> generate these dynamically based on your profile metadata.
+      </p>
+
+      <h3>4. Show off your graph art</h3>
+      <p>
+        Having custom contribution graph artwork (like a wave, logo, or message generated using our tool) is a great conversation starter and shows your creativity and familiarity with Git configuration!
+      </p>
+    </div>
+
+    <!-- Guide 4 -->
+    <div id="pattern-gallery" class="content-card">
+      <h2>🎨 Creative Pattern Gallery & Ideas</h2>
+      <p>
+        Need inspiration for what to draw on your contribution graph? Here are some popular design categories that work exceptionally well on the 53x7 canvas:
+      </p>
+      
+      <h3>1. Text & Messages</h3>
+      <p>
+        Writing short words or names is the most common form of graph art. Since the grid height is limited to 7 pixels, use a simple 5x5 pixel-style font for letters:
+      </p>
+      <ul>
+        <li>Write your initials (e.g., <code>"RT"</code>).</li>
+        <li>Write short tech words: <code>"CODE"</code>, <code>"GIT"</code>, <code>"DEV"</code>.</li>
+        <li>Spell out year markers (e.g., <code>"2026"</code>).</li>
+      </ul>
+
+      <h3>2. Retro Games Sprites</h3>
+      <p>
+        8-bit retro games are structured on small grids, making them perfect for your calendar graph:
+      </p>
+      <ul>
+        <li><strong>Space Invaders:</strong> The iconic alien sprite fits comfortably within a 7-pixel height constraint.</li>
+        <li><strong>Pac-Man & Ghosts:</strong> Draw Pac-Man chasing a small ghost.</li>
+        <li><strong>Hearts:</strong> Simple pixelated hearts at the center or corners of your graph.</li>
+      </ul>
+
+      <h3>3. Abstract Fades & Gradients</h3>
+      <p>
+        Instead of solid patterns, you can create smooth horizontal or vertical gradient fades. Draw lines that transition from sparse cells (light green) to dense clusters (dark green) to create a visual "shimmer" effect.
+      </p>
+    </div>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <div class="socials">
+      <a href="https://github.com/ritiktyagiai" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/ritiktyagiai/" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://leetcode.com/u/ritiktyagiai" target="_blank"><i class="fas fa-code"></i></a>
+    </div>
+    <div class="footer-links" style="margin-top: 15px;">
+      <a href="privacy.html" style="margin: 0 10px; color: var(--text-muted); text-decoration: none; font-size: 0.9rem;">Privacy Policy</a> | 
+      <a href="terms.html" style="margin: 0 10px; color: var(--text-muted); text-decoration: none; font-size: 0.9rem;">Terms of Service</a>
+    </div>
+    <p style="margin-top: 20px;">Made with ❤️ by <strong>Ritik Tyagi</strong></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

@@ -302,3 +302,213 @@ button:active {
 * {
   caret-color: transparent;
 }
+
+input, textarea {
+  caret-color: auto;
+}
+
+/* ================= CONTENT PAGE STYLES ================= */
+.content-card {
+  max-width: 850px;
+  width: 90%;
+  margin: 0 auto;
+  padding: 32px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.content-card h1 {
+  font-size: 2.2rem;
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: var(--text-color);
+  font-weight: 800;
+}
+
+.content-card h2 {
+  font-size: 1.6rem;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid var(--card-border);
+  padding-bottom: 8px;
+  color: var(--text-color);
+}
+
+.content-card h3 {
+  font-size: 1.25rem;
+  margin-top: 24px;
+  margin-bottom: 10px;
+  color: var(--text-color);
+}
+
+.content-card p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.content-card ul, .content-card ol {
+  margin-bottom: 20px;
+  padding-left: 24px;
+  color: var(--text-muted);
+}
+
+.content-card li {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+
+.content-card a {
+  color: var(--nav-hover);
+  text-decoration: none;
+  font-weight: 500;
+  transition: text-decoration 0.2s ease;
+}
+
+.content-card a:hover {
+  text-decoration: underline;
+}
+
+.content-card strong {
+  color: var(--text-color);
+}
+
+/* Code blocks in content */
+.content-card pre {
+  background: var(--bg-color);
+  border: 1px solid var(--card-border);
+  padding: 16px;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 16px 0;
+}
+
+.content-card code {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.95rem;
+  background: var(--bg-color);
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid var(--card-border);
+  color: var(--text-color);
+}
+
+.content-card pre code {
+  border: none;
+  padding: 0;
+  background: none;
+}
+
+/* ================= CONTACT FORM ================= */
+.contact-form {
+  margin-top: 24px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+  color: var(--text-color);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  background: var(--bg-color);
+  color: var(--text-color);
+  font-family: inherit;
+  font-size: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  caret-color: auto;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--nav-hover);
+  box-shadow: 0 0 0 3px rgba(250, 42, 85, 0.15);
+}
+
+/* ================= GUIDE CARD GRID ================= */
+.guide-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-top: 30px;
+}
+
+@media (min-width: 768px) {
+  .guide-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.guide-card {
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 20px;
+  background: var(--bg-color);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-decoration: none;
+}
+
+.guide-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  border-color: var(--nav-hover);
+}
+
+.guide-card h3 {
+  margin-top: 0;
+  color: var(--text-color);
+  font-size: 1.25rem;
+}
+
+.guide-card p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.guide-card .read-more {
+  color: var(--nav-hover);
+  font-weight: 600;
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Alert block for guides */
+.info-alert {
+  background: rgba(250, 42, 85, 0.05);
+  border-left: 4px solid var(--nav-hover);
+  padding: 16px;
+  border-radius: 4px;
+  margin: 20px 0;
+}
+
+.info-alert p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
