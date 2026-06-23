@@ -30,10 +30,10 @@
     </div>
 
     <nav class="nav">
-      <a href="index.html">🎨 Tool</a>
-      <a href="guides.html" class="active">📚 Guides</a>
-      <a href="about.html">ℹ️ About</a>
-      <a href="contact.html">✉️ Contact</a>
+      <a href="index.html">Tool</a>
+      <a href="guides.html" class="active">Guides</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
       <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode">
         <i class="fas fa-moon"></i>
       </button>
@@ -49,6 +49,16 @@
       <p>
         Learn how to master your GitHub profile graph, build beautiful contribution art, and explore tips to make your GitHub profile stand out to developers and recruiters.
       </p>
+
+      <!-- Video Thumbnail Link -->
+      <a href="https://youtu.be/OQpGpr-m42s" target="_blank" class="video-link-wrapper">
+        <div class="video-thumbnail-container">
+          <img src="assets/thumbnail.png" alt="GitHub Contribution Graph Hack Tutorial" class="video-thumbnail">
+          <div class="play-button-overlay">
+            <i class="fas fa-play"></i>
+          </div>
+        </div>
+      </a>
       
       <!-- Table of Contents Grid -->
       <div class="guide-grid">
@@ -88,37 +98,64 @@
 
     <!-- Guide 1 -->
     <div id="how-to-use" class="content-card">
-      <h2>📖 How to Use the GitHub Pattern Generator</h2>
+      <h2>📖 How to Use the GitHub Pattern Generator (8-Step Guide)</h2>
       <p>
-        Customizing your contribution graph involves drawing a design in our visual editor, exporting it, and then running a script to commit files on the specific dates that align with your design. Here is the step-by-step workflow:
-      </p>
-      <h3>Step 1: Draw Your Design</h3>
-      <p>
-        Navigate to the homepage tool. The canvas represents a full year of GitHub contributions (53 weeks wide, 7 days high).
-      </p>
-      <ul>
-        <li><strong>Left-Click</strong> on any cell to activate it (turns bright green, indicating high contribution density).</li>
-        <li><strong>Right-Click</strong> on any active cell to deactivate it (turns gray/empty).</li>
-        <li>Feel free to draw characters, simple patterns, or words!</li>
-      </ul>
-      
-      <h3>Step 2: Download your config</h3>
-      <p>
-        Once you're satisfied with your drawing, click <strong>Download pattern.json</strong>. This saves a structured JSON file mapping your visual coordinates into numerical levels (e.g. <code>"3"</code> for active, space <code>" "</code> for empty).
+        Follow these steps to generate, export, and write a custom design onto your GitHub contribution graph:
       </p>
 
-      <h3>Step 3: Run the Automation Script</h3>
+      <h3>1️⃣ Generate pattern.json</h3>
       <p>
-        To render the pattern onto your live GitHub profile, you need a script that reads the downloaded <code>pattern.json</code> and commits updates to a repository on those specific dates in history. Here is a simple outline of how such automation works:
+        Open the visual canvas editor on our <a href="index.html">homepage</a>. Draw your custom letters, shapes, or pixel art by clicking on the grid:
       </p>
-      <pre><code>// The script parses each cell in pattern.json
-// Row index (0-6) maps to the day of the week (Sunday-Saturday)
-// Column index (0-52) maps to the week of the year
-// It adjusts GIT_COMMIT_DATE for each active cell and runs:
-git commit --date="YYYY-MM-DD" -m "Automated pattern commit"
-</code></pre>
+      <ul>
+        <li><strong>Left-Click</strong> to activate a cell (turns green).</li>
+        <li><strong>Right-Click</strong> to clear a cell (turns empty).</li>
+        <li>Click <strong>Download pattern.json</strong> to save the layout grid locally.</li>
+      </ul>
+
+      <h3>2️⃣ Create a New GitHub Repository</h3>
+      <ul>
+        <li>Create a <strong>new public or private repository</strong> on GitHub.</li>
+        <li>This repository will host the contribution commits you are about to generate. We highly recommend using a completely <strong>empty repo</strong> so that you can easily delete it later if you want to reset your graph.</li>
+      </ul>
+      <p>Clone your new repository locally:</p>
+      <pre><code>git clone &lt;your-new-repo-url&gt;
+cd &lt;your-new-repo-name&gt;</code></pre>
+
+      <h3>3️⃣ Clone the Commit-Script Tool (Temporary)</h3>
+      <p>Clone the open-source script utility locally in a separate, temporary directory:</p>
+      <pre><code>git clone https://github.com/aurafarmerone/github-contribution-graph-hack.git</code></pre>
+
+      <h3>4️⃣ Move Required Files Into Your New Repo</h3>
+      <ul>
+        <li>Copy the commit generation script (<code>script.py</code>) from the cloned tool folder and paste it into **your new repository root directory**.</li>
+        <li><strong>Delete the cloned tool repository folder</strong> from your computer to avoid local <code>.git</code> database conflicts.</li>
+      </ul>
+
+      <h3>5️⃣ Replace pattern.json</h3>
+      <ul>
+        <li>Copy the <code>pattern.json</code> configuration file you downloaded from our homepage editor.</li>
+        <li>Paste it into your new repository root, replacing the default placeholder file. Ensure the filename remains exactly <code>pattern.json</code>.</li>
+      </ul>
+
+      <h3>6️⃣ Push Initial Setup to GitHub</h3>
+      <p>Stage, commit, and push your repository's initial environment before executing the time-machine commits:</p>
+      <pre><code>git add .
+git commit -m "Initial setup for contribution pattern"
+git push origin main</code></pre>
+
+      <h3>7️⃣ Run the Python Script</h3>
+      <p>Execute the commit generator script from your repository directory:</p>
+      <pre><code>python script.py</code></pre>
+      <p>When prompted by the console, enter the year you'd like to write the pattern into:</p>
+      <pre><code>Enter year to draw pattern: 2025</code></pre>
+      <p>The script will parse your grid coordinates and generate commits with adjusted timezone variables for each active date.</p>
+
+      <h3>8️⃣ View Result on GitHub 🎉</h3>
+      <p>Open your GitHub profile page and scroll down to your Contribution Graph. Your custom green pattern will render! Note that GitHub can sometimes take up to 5-10 minutes to process commits and update the graph cache.</p>
+
       <div class="info-alert">
-        <p><strong>💡 Pro Tip:</strong> Always run commit generator scripts inside a new, empty, private or public repository dedicated solely to contribution artwork. If you ever want to reset or remove the graph design, you can simply delete that repository!</p>
+        <p><strong>💡 Pro Tip:</strong> If you ever want to remove or reset the custom artwork, simply delete your commit repository on GitHub. Your graph will automatically revert to its previous clean state.</p>
       </div>
     </div>
 
@@ -225,7 +262,7 @@ git commit --date="YYYY-MM-DD" -m "Automated pattern commit"
       <a href="https://leetcode.com/u/ritiktyagiai" target="_blank"><i class="fas fa-code"></i></a>
     </div>
     <div class="footer-links" style="margin-top: 15px;">
-      <a href="privacy.html" style="margin: 0 10px; color: var(--text-muted); text-decoration: none; font-size: 0.9rem;">Privacy Policy</a> | 
+      <a href="privacy-policy.html" style="margin: 0 10px; color: var(--text-muted); text-decoration: none; font-size: 0.9rem;">Privacy Policy</a> | 
       <a href="terms.html" style="margin: 0 10px; color: var(--text-muted); text-decoration: none; font-size: 0.9rem;">Terms of Service</a>
     </div>
     <p style="margin-top: 20px;">Made with ❤️ by <strong>Ritik Tyagi</strong></p>

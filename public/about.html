@@ -30,10 +30,10 @@
     </div>
 
     <nav class="nav">
-      <a href="index.html">🎨 Tool</a>
-      <a href="guides.html">📚 Guides</a>
-      <a href="about.html" class="active">ℹ️ About</a>
-      <a href="contact.html">✉️ Contact</a>
+      <a href="index.html">Tool</a>
+      <a href="guides.html">Guides</a>
+      <a href="about.html" class="active">About</a>
+      <a href="contact.html">Contact</a>
       <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode">
         <i class="fas fa-moon"></i>
       </button>
@@ -45,37 +45,51 @@
     <div class="content-card">
       <h1>About GitHub Pattern Generator</h1>
       <p>
-        The <strong>GitHub Pattern Generator</strong> is a lightweight, interactive open-source tool designed to help developers personalize their GitHub profile contribution graphs. GitHub's contribution graph is a calendar that tracks commits, issues, and pull requests over the past year. By adjusting the timing and count of commits, developers can write words, draw patterns, or design symbols that display directly on their profile graphs.
+        The <strong>GitHub Pattern Generator</strong> (GitHub Commit Lab) is a lightweight, interactive open-source tool designed to help developers personalize their GitHub profile contribution graphs. By adjusting the timing and count of commits, developers can write words, draw patterns, or design symbols that display directly on their profile graphs using green dots.
+      </p>
+      
+      <h2>🚀 The Graph Time Machine</h2>
+      <p>
+        Think of this project as a <strong>time machine</strong> for your GitHub contribution graph. We all have moments where we were inactive for months, made mistakes, forgot to push code, or simply didn't know Git well enough. This tool lets you travel back in time and visualize patterns on your contribution graph by converting a visual editor's canvas design into a <code>pattern.json</code> configuration. This configuration can then be fed into a local Python script to generate real commits with past dates.
       </p>
       <p>
-        Normally, designing contribution graph artwork requires manually calculating days, weeks, and contribution values, which can be a slow and error-prone process. The GitHub Pattern Generator replaces this complexity with a visual contribution grid canvas representing the standard 53-week, 7-day contribution grid. Developers can click or draw on cells, immediately preview the design, and export it as a <code>pattern.json</code> configuration.
+        It doesn't change who you are — it just helps you experiment, learn, and have fun with how GitHub graphs work.
       </p>
 
-      <h2>Core Features</h2>
-      <ul>
-        <li><strong>Visual Editor:</strong> Left-click to add a contribution block, and right-click to clear a block. Easy to use, highly responsive canvas.</li>
-        <li><strong>Instant Preview:</strong> See your graph design come to life in real-time, supporting light and dark mode viewports.</li>
-        <li><strong>JSON Export:</strong> Save your patterns locally as a structured <code>pattern.json</code> configuration file.</li>
-        <li><strong>Automation Ready:</strong> Compatible with automated scripting tools to schedule commits on selected dates according to your design.</li>
-      </ul>
+      <h2>🧠 How It Works</h2>
+      <p>
+        The GitHub contribution graph is structured as a grid with <strong>7 rows</strong> (representing days of the week) and <strong>53 columns</strong> (representing weeks in a year). 
+      </p>
+      <p>
+        Our workflow translates this grid into code:
+      </p>
+      <ol>
+        <li>You draw your design on the homepage visual canvas.</li>
+        <li>You download the design as a <code>pattern.json</code> file.</li>
+        <li>The backend automation script reads your pattern grid, converts the active cells into corresponding date strings, and executes local git commit commands with retrofitted <code>--date</code> flags.</li>
+        <li>Once pushed to GitHub, these commits are parsed and shown as green dots on your contribution board.</li>
+      </ol>
+
+      <div class="info-alert">
+        <p><strong>⚠️ Disclaimer:</strong> This project is created just for fun, learning, and experimentation. Please do not use it to mislead others, claim fake activity during interviews, or seek unfair advantages. Be honest — skills matter more than contribution graphs.</p>
+      </div>
+
+      <h2>📺 YouTube Tutorial Walkthrough</h2>
+      <p>
+        If you want to see the full setup and execution in action, you can watch our step-by-step tutorial video:
+        <br>
+        👉 <a href="https://youtu.be/OQpGpr-m42s" target="_blank">Watch the Full Walkthrough on YouTube</a>
+      </p>
 
       <h2>About the Creator</h2>
       <p>
         This tool was developed and is maintained by <strong>Ritik Tyagi</strong>. Ritik is a software developer passionate about building lightweight, efficient web applications, developer utilities, and open-source packages. 
       </p>
-      <p>
-        You can connect and follow my work through these platforms:
-      </p>
       <ul>
-        <li><strong>GitHub:</strong> <a href="https://github.com/ritiktyagiai" target="_blank">@ritiktyagiai</a> – Source code, project repositories, and other developer tools.</li>
-        <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/ritiktyagiai/" target="_blank">Ritik Tyagi</a> – Professional updates, articles, and networking.</li>
-        <li><strong>LeetCode:</strong> <a href="https://leetcode.com/u/ritiktyagiai" target="_blank">Ritik Tyagi</a> – Algorithm practice and competitive programming profiles.</li>
+        <li><strong>GitHub:</strong> <a href="https://github.com/ritiktyagiai" target="_blank">@ritiktyagiai</a> – Check out the code and open issues.</li>
+        <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/ritiktyagiai/" target="_blank">Ritik Tyagi</a> – Connect and network professionally.</li>
+        <li><strong>LeetCode:</strong> <a href="https://leetcode.com/u/ritiktyagiai" target="_blank">Ritik Tyagi</a> – View my algorithmic profile.</li>
       </ul>
-
-      <h2>Open Source Community</h2>
-      <p>
-        This project is open-source under the MIT license, encouraging contributions from developers of all skill levels. If you want to contribute, add features, improve accessibility, or customize the styling, check out the repository on GitHub and open a pull request!
-      </p>
     </div>
   </main>
 
@@ -87,7 +101,7 @@
       <a href="https://leetcode.com/u/ritiktyagiai" target="_blank"><i class="fas fa-code"></i></a>
     </div>
     <div class="footer-links" style="margin-top: 15px;">
-      <a href="privacy.html" style="margin: 0 10px; color: var(--text-muted); text-decoration: none; font-size: 0.9rem;">Privacy Policy</a> | 
+      <a href="privacy-policy.html" style="margin: 0 10px; color: var(--text-muted); text-decoration: none; font-size: 0.9rem;">Privacy Policy</a> | 
       <a href="terms.html" style="margin: 0 10px; color: var(--text-muted); text-decoration: none; font-size: 0.9rem;">Terms of Service</a>
     </div>
     <p style="margin-top: 20px;">Made with ❤️ by <strong>Ritik Tyagi</strong></p>
